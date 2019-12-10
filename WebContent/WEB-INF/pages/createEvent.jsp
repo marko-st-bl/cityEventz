@@ -17,17 +17,17 @@
 	<form action="?action=addevent" method="post">
 		<div class="form-group">
 			<label for="name">Name</label> <input type="text"
-				class="form-control"  name="name" id="event-name" placeholder="Enter name">
+				class="form-control"  name="name" id="event-name" placeholder="Enter name" required>
 		</div>
 		<div class="form-group">
 			<label for="description">Description</label>
 			<textarea class="form-control" name="description" id="event-description" rows="3"
-				placeholder="Enter description"></textarea>
+				placeholder="Enter description" required></textarea>
 		</div>
 		<div class="form-group">
 			<label for="address">Address</label>
 			<textarea class="form-control" name="address" id="event-address" rows="2"
-				placeholder="Enter address"></textarea>
+				placeholder="Enter address" required></textarea>
 		</div>
 		<div class="form-group">
 			<label for="category">Select category</label> <select
@@ -42,11 +42,11 @@
 		</div>
 		<div class="form-group">
 			<label for="event-date">Date</label> <input type="date"
-				class="form-control" name="date" id="event-date">
+				class="form-control" name="date" id="event-date" required>
 		</div>
 		<div class="form-group">
 			<label for="event-time">Time</label> <input type="time"
-				class="form-control" name="time" id="event-time">
+				class="form-control" name="time" id="event-time" required>
 		</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
