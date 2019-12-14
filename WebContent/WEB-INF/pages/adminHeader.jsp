@@ -25,8 +25,15 @@
 					<li><a href="Controller?action=createevent">Create new...</a></li>
 					<li><a href="#">View all...</a></li>
 					<li><a href="#">Promotion</a></li>
-				</ul></li>
-			<li class="nav-item"><a class="nav-link" href="#">Today</a></li>
+				</ul>
+			</li>
+			<li class="dropdown"><a class="nav-link dropdown-toggle"
+				data-toggle="dropdown" href="#">Categories<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="Controller?action=createcategory">Create new...</a></li>
+					<li><a href="#">View all...</a></li>
+				</ul>
+			</li>
 			<li class="nav-item"><a class="nav-link" href="#">Upcoming</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">Past</a></li>
 		</ul>
