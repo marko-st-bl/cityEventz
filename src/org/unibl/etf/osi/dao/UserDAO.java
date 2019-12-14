@@ -17,8 +17,6 @@ public class UserDAO {
 	public static final String PATH="C:\\Users\\Marko\\eclipse-workspace\\cityEventz\\json\\users.json";
 	
 	public static User getUserByUsernamePassword(String username, String password){
-		User retVal;
-		
 		List<User> users;
 		Type USER_TYPE = new TypeToken<List<User>>() {
 		}.getType();
@@ -31,8 +29,7 @@ public class UserDAO {
 			
 			for(User user:users) {
 				if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
-					retVal = user;
-					return retVal;
+					return user;
 				}
 			}
 		} catch (FileNotFoundException e) {
@@ -40,8 +37,6 @@ public class UserDAO {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
 		return null;
 	}
 
