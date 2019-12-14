@@ -42,8 +42,10 @@ public class Controller extends HttpServlet {
 			UserBean userBean = new UserBean();
 			if(userBean.login(username, password)) {
 				session.setAttribute("userBean", userBean);
-				address="/WEB-INF/pages/events.jsp";
+				address="/WEB-INF/pages/admin.jsp";
 			}
+		}else if(action.equals("createevent")){
+			address="/WEB-INF/pages/createEvent.jsp";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
