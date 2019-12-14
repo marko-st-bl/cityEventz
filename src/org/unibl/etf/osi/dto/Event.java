@@ -8,16 +8,28 @@ public class Event {
 	private int id;
 	private String name;
 	private String description;
-	private Date date;
-	private List<Category> categories;
+	private String date;
+	private String time;
+	private Category category;
 	
-	public Event(int id, String name, String description, Date date, List<Category> categories) {
+	public Event(int id, String name, String description, String date, String time, Category category) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.date = date;
-		this.categories=categories;
+		this.time=time;
+		this.category=category;
+	}
+	
+	public Event(String name, String description, String date, String time, String category) {
+		super();
+		this.name=name;
+		this.description=description;
+		this.date=date;
+		this.time=time;
+		this.category=new Category();
+		this.category.setName(category);
 	}
 	
 	public Event() {
@@ -48,20 +60,28 @@ public class Event {
 		this.description = description;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
-	public List<Category> getCategories() {
-		return categories;
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setCategories(List<Category> categories) {
-		this.categories = categories;
-	}	
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+	
 }

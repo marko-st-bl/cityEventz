@@ -1,6 +1,7 @@
 package org.unibl.etf.osi.controller;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.unibl.etf.osi.beans.UserBean;
+import org.unibl.etf.osi.dao.EventDAO;
+import org.unibl.etf.osi.dto.Event;
 
 /**
  * Servlet implementation class Controller
@@ -46,6 +49,14 @@ public class Controller extends HttpServlet {
 			}
 		}else if(action.equals("createevent")){
 			address="/WEB-INF/pages/createEvent.jsp";
+		}else if(action.equals("addevent")) {
+			String name=request.getParameter("name");
+			String description=request.getParameter("description");
+			String category=request.getParameter("category");
+			String date=request.getParameter("date");
+			String time=request.getParameter("time");
+			Event event=new Event(name, description, date, time, category);
+			EventDAO.createEvent(event);
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
