@@ -34,7 +34,7 @@
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="Controller?action=createcategory">Create new
 								category</a>
-						<a class="dropdown-item" href="#">Show all categories</a>
+						<a class="dropdown-item" href="Contreoller?action=showcategories">Show all categories</a>
 					</div></li>
 			</ul>
 			<ul class="navbar-nav navbar-right">

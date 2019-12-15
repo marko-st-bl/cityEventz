@@ -69,6 +69,8 @@ public class Controller extends HttpServlet {
 		}else if(action.equals("logout")) {
 			session.invalidate();
 			address = "/WEB-INF/pages/index.jsp";
+		}else if(action.equals("showcategories")) {
+			address="/WEB-INF/pages/showcategories.jsp";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
