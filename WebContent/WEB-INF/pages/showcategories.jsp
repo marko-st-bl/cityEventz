@@ -29,12 +29,24 @@
 					out.println("<tr>");
 					out.println("	<td>" + cat.getId() + "</td>");
 					out.println("	<td>" + cat.getName() + "</td>");
-					out.println("	<td><a href=\"#\"><i class=\"fas fa-trash-alt\"></i></a></td>");
+					out.println(
+							"	<td><a class=\"delete\" title=\"Delete\" data-toggle=\"tooltip\" href=\"#\"><i class=\"fas fa-trash-alt\"></i></a></td>");
 					out.println("</tr>");
 				}
 			%>
 		</tbody>
 	</table>
 </div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('[data-toggle="tooltip"]').tooltip();
+		var actions = $("table td:last-child").html();
+		// Delete row on delete button click
+		$(document).on("click", ".delete", function() {
+			$(this).parents("tr").remove();
+			$(".add-new").removeAttr("disabled");
+		});
+	});
+</script>
 </body>
 </html>
