@@ -37,11 +37,11 @@ public class CategoryDAO {
 		return retVal;
 	}
 	
-	public static void addCategory(String name) {
+	public static void addCategory(Category category) {
 		List<Category> categories;
 		try {
 			categories = getAllCategories();
-			Category category=new Category(categories.size(), name);
+			category.setId(categories.size());
 			categories.add(category);
 			Gson gson = new Gson();
 			FileWriter writer = new FileWriter(PATH);
@@ -52,13 +52,13 @@ public class CategoryDAO {
 		}
 	}
 	
-	public static void removeCategory(String name){
+	public static void removeCategory(Category category){
 		List<Category> categories;
 		try {
 			categories = getAllCategories();
 			Category cat=new Category();
 			for(Category c:categories) {
-				if(c.getName().equals(name)) {
+				if(c.getName().equals(category.getName())) {
 					cat=c;
 				}
 			}

@@ -1,7 +1,6 @@
 package org.unibl.etf.osi.controller;
 
 import java.io.IOException;
-import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.unibl.etf.osi.beans.UserBean;
+import org.unibl.etf.osi.dao.CategoryDAO;
 import org.unibl.etf.osi.dao.EventDAO;
+import org.unibl.etf.osi.dto.Category;
 import org.unibl.etf.osi.dto.Event;
 
 /**
@@ -50,6 +51,7 @@ public class Controller extends HttpServlet {
 		}else if(action.equals("createevent")){
 			address="/WEB-INF/pages/createEvent.jsp";
 		}else if(action.equals("addevent")) {
+			address="/WEB-INF/pages/admin.jsp";
 			String name=request.getParameter("name");
 			String description=request.getParameter("description");
 			String category=request.getParameter("category");
@@ -57,6 +59,16 @@ public class Controller extends HttpServlet {
 			String time=request.getParameter("time");
 			Event event=new Event(name, description, date, time, category);
 			EventDAO.createEvent(event);
+		}else if(action.equals("addcategory")) {
+			address="/WEB-INF/pages/admin.jsp";
+			String name=request.getParameter("name");
+			Category category=new Category(name);
+			CategoryDAO.addCategory(category);
+		}else if(action.equals("createcategory")) {
+			address="/WEB-INF/pages/createcategory.jsp";
+		}else if(action.equals("logout")) {
+			session.invalidate();
+			address = "/WEB-INF/pages/index.jsp";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);

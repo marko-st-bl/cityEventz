@@ -21,12 +21,12 @@ public class CategoryBean {
 		return CategoryDAO.getAllCategories();
 	}
 	
-	public void addCategory(String name) {
-		CategoryDAO.addCategory(name);
+	public void addCategory() {
+		CategoryDAO.addCategory(category);
 	}
 	
-	public void removeCategory(String name) {
-		CategoryDAO.removeCategory(name);
+	public void removeCategory() {
+		CategoryDAO.removeCategory(category);
 	}
 
 }

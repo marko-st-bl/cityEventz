@@ -1,1 +1,1 @@
-[{"id":0},{"id":1,"name":"Koncert","description":"opis","date":"2019-12-15","time":"20:00","category":{"id":0,"name":"Concert"}}]
+[{"id":0,"name":"Koncert","description":"opis","date":"2019-12-15","time":"20:00","category":{"id":1,"name":"Concert"}},{"id":1,"name":"Promocija knjige","description":"Promocija novog romana Neleta Karajli?a","date":"2019-12-20","time":"19:00","category":{"id":0,"name":"Promotion"}},{"id":2,"name":"Promocija knjige","description":"Promocija novog romana Neleta Karajli?a","date":"2019-12-20","time":"19:00","category":{"id":0,"name":"Promotion"}}]

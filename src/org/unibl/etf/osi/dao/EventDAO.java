@@ -8,7 +8,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.unibl.etf.osi.dto.Category;
 import org.unibl.etf.osi.dto.Event;
 
 import com.google.gson.Gson;
