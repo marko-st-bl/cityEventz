@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.unibl.etf.osi.beans.CategoryBean;
 import org.unibl.etf.osi.beans.UserBean;
 import org.unibl.etf.osi.dao.CategoryDAO;
 import org.unibl.etf.osi.dao.EventDAO;
@@ -71,6 +72,13 @@ public class Controller extends HttpServlet {
 			address = "/WEB-INF/pages/index.jsp";
 		}else if(action.equals("showcategories")) {
 			address="/WEB-INF/pages/showcategories.jsp";
+		}else if(action.equals("deletecategory")) {
+			System.out.println("deletecat");
+			String id = request.getParameter("id");
+			String name = request.getParameter("name");
+			CategoryBean category= new CategoryBean();
+			category.setCategory(new Category(Integer.parseInt(id), name));
+			category.removeCategory();
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);

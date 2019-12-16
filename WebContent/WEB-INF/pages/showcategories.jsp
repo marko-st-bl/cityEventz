@@ -41,10 +41,17 @@
 	$(document).ready(function() {
 		$('[data-toggle="tooltip"]').tooltip();
 		var actions = $("table td:last-child").html();
-		// Delete row on delete button click
+		// Delete row on delete button click and send request
 		$(document).on("click", ".delete", function() {
+			var x = $(this).closest("tr").children();
+			var data = "id=" + x[0].innerHTML + "&name=" + x[1].innerHTML;
+			console.log(data);
 			$(this).parents("tr").remove();
 			$(".add-new").removeAttr("disabled");
+			var xhttp = new XMLHttpRequest();
+			xhttp.open("POST", "?action=deletecategory", true);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhttp.send(data);
 		});
 	});
 </script>
