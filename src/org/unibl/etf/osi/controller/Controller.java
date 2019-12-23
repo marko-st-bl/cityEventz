@@ -132,7 +132,10 @@ public class Controller extends HttpServlet {
 			session.setAttribute("sortedList", events);
 		}else if(action.equals("showbycategory")) {
 			String name = request.getParameter("name");
-			System.out.print(name);
+			EventBean eventBean = new EventBean();
+			List<Event> events = eventBean.getByCategory(name);
+			session.setAttribute("eventsByCategory", events);
+			address = "/WEB-INF/pages/eventsbycategory.jsp";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);

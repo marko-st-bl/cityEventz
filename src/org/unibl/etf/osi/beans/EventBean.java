@@ -36,4 +36,7 @@ public class EventBean {
 	public List<Event> getPastEvents(){
 		return EventDAO.getPastEvents();
 	}
+	public List<Event> getByCategory(String name){
+		return EventDAO.getByCategory(name);
+	}
 }
