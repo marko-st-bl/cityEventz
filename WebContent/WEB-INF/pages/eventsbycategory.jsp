@@ -13,7 +13,7 @@
 	output += "<div class=\"card-deck\">";
 	for (Event e : events) {
 		String dateParams[] = e.getDate().split("-");
-		output += "<div class=\"col-lg-12\">" + "<div class=\"card text-white bg-dark mb-3\">"
+		output += "<div class=\"col-lg-12\">" + "<div class=\"card bg-light mb-3\">"
 				+ "<div class=\"card-header\">" + dateParams[2] + "." + dateParams[1] + "." + dateParams[0]
 				+ ", " + e.getTime() + "</div>" + "<div class=\"card-body\">" + "<h5 class=\"card-title\">"
 				+ e.getName() + "</h5>" + "<p class=\"card-text\">" + e.getDescription() + "</p>" + "</div>"

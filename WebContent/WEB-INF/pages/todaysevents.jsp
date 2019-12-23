@@ -8,7 +8,7 @@ String todays="";
 todays+="<div class=\"container\">";
 todays+="<div class=\"events card-deck\">";
 for(Event e:events){
-	todays+="<div class=\"card text-white bg-dark\">" +
+	todays+="<div class=\"card bg-light mb-3\">" +
 				"<div class=\"card-header\">Today at " + e.getTime() + "</div>" +
 				"<div class=\"card-body\">" +
 					"<h5 class=\"card-title\">" + e.getName() + "</h5>" +

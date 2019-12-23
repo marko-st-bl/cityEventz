@@ -35,3 +35,7 @@ div.backgroundimage{
 	align-content: flex-end;
 	justify-content: flex-end;
 }
+
+.card-header{
+	color: #FF5733;
+}

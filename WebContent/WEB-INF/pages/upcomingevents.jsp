@@ -7,7 +7,7 @@ List<Event> events= eventBean.getUpcomingEvents();
 String todays="";
 todays+="<div class=\"events card-deck container\">";
 for(Event e:events){
-	todays+="<div class=\"card text-white bg-dark mb-3\">" +
+	todays+="<div class=\"card bg-light mb-3\">" +
 				"<div class=\"card-header\">" + e.getTime() + "</div>" +
 				"<div class=\"card-body\">" +
 					"<h5 class=\"card-title\">" + e.getName() + "</h5>" +
