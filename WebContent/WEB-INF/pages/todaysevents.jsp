@@ -5,9 +5,10 @@
 <%
 List<Event> events= eventBean.getTodaysEvents();
 String todays="";
-todays+="<div class=\"events card-deck container\">";
+todays+="<div class=\"container\">";
+todays+="<div class=\"events card-deck\">";
 for(Event e:events){
-	todays+="<div class=\"card text-white bg-dark mb-3\">" +
+	todays+="<div class=\"card text-white bg-dark\">" +
 				"<div class=\"card-header\">Today at " + e.getTime() + "</div>" +
 				"<div class=\"card-body\">" +
 					"<h5 class=\"card-title\">" + e.getName() + "</h5>" +
@@ -15,6 +16,7 @@ for(Event e:events){
 				"</div>" +
 			"</div>";
 }
+todays+="</div>";
 todays+="</div>";
 %>
 

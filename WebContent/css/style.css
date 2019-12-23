@@ -10,15 +10,21 @@ div.backgroundimage{
 	backround-image: url("img/background.jpg");
 }
 
-div.card{
+.card{
 	padding: 10px;
+	display: inline-block;
+}
+
+.card-deck{
+	align-content: center;
 }
 
 .events{
 	margin-top: 25px;
+	margin-bottom: 50px;
 	align-content: center;
 }
 
 .card{
-	max-width: 540px;
+	width: 100%;
 }

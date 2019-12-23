@@ -26,9 +26,6 @@
 						<a  class="dropdown-item"href="Controller?action=createevent">Create new
 								event</a>
 						<a class="dropdown-item" href="Controller?action=showall">Show all events </a>
-						<a class="dropdown-item" href="#">Show today's events</a>
-						<a class="dropdown-item" href="#">Show upcoming events</a>
-						<a class="dropdown-item" href="#">Show past events</a>
 					</div></li>
 				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
 					data-toggle="dropdown" href="#"><i class="fas fa-th-large"></i>Categories<span class="caret"></span></a>
