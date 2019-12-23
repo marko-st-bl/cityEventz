@@ -84,6 +84,8 @@ public class Controller extends HttpServlet {
 			category.removeCategory();
 		}else if(action.equals("showtodays")) {
 			address="/WEB-INF/pages/todaysevents.jsp";
+		}else if(action.equals("showupcoming")) {
+			address="/WEB-INF/pages/upcomingevents.jsp";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
