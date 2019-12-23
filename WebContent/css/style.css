@@ -9,3 +9,16 @@ a.delete:hover{
 div.backgroundimage{
 	backround-image: url("img/background.jpg");
 }
+
+div.card{
+	padding: 10px;
+}
+
+.todays{
+	margin-top: 25px;
+	align-content: center;
+}
+
+.card{
+	max-width: 540px;
+}

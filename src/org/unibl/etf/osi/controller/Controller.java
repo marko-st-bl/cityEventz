@@ -82,6 +82,8 @@ public class Controller extends HttpServlet {
 			CategoryBean category= new CategoryBean();
 			category.setCategory(new Category(Integer.parseInt(id), name));
 			category.removeCategory();
+		}else if(action.equals("showtodays")) {
+			address="/WEB-INF/pages/todaysevents.jsp";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
