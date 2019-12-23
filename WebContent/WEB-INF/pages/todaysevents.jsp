@@ -5,7 +5,7 @@
 <%
 List<Event> events= eventBean.getTodaysEvents();
 String todays="";
-todays+="<div class=\"todays card-deck container\">";
+todays+="<div class=\"events card-deck container\">";
 for(Event e:events){
 	todays+="<div class=\"card text-white bg-dark mb-3\">" +
 				"<div class=\"card-header\">Today at " + e.getTime() + "</div>" +

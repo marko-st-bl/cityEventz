@@ -22,7 +22,7 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="Controller?action=showtodays">Today</a></li>
 				<li class="nav-item"><a class="nav-link" href="Controller?action=showupcoming">Upcoming</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Past</a></li>
+				<li class="nav-item"><a class="nav-link" href="Controller?action=showpast">Past</a></li>
 			</ul>
 		</div>
 	</nav>
