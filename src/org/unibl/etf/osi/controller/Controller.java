@@ -88,6 +88,8 @@ public class Controller extends HttpServlet {
 			address="/WEB-INF/pages/upcomingevents.jsp";
 		}else if(action.equals("showpast")) {
 			address="/WEB-INF/pages/pastevents.jsp";
+		}else if(action.equals("showall")) {
+			address="/WEB-INF/pages/allevents.jsp";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);

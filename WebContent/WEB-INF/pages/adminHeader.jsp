@@ -25,7 +25,7 @@
 					<div class="dropdown-menu">
 						<a  class="dropdown-item"href="Controller?action=createevent">Create new
 								event</a>
-						<a class="dropdown-item" href="#">Show all events </a>
+						<a class="dropdown-item" href="Controller?action=showall">Show all events </a>
 						<a class="dropdown-item" href="#">Show today's events</a>
 						<a class="dropdown-item" href="#">Show upcoming events</a>
 						<a class="dropdown-item" href="#">Show past events</a>
