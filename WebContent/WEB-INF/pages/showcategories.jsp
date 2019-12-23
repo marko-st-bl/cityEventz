@@ -55,5 +55,4 @@
 		});
 	});
 </script>
-</body>
-</html>
+<jsp:include flush="true" page="footer.jsp"/>

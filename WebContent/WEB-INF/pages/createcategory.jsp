@@ -18,5 +18,4 @@
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
 </div>
-</body>
-</html>
+<jsp:include flush="true" page="footer.jsp"/>

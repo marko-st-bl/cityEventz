@@ -38,6 +38,7 @@ a.delete:hover{
 }
 
 .jumbotron-background {
+  background-color: #9133FF;
   object-fit:cover;
   font-family: 'object-fit: cover;';
   position:absolute;
@@ -51,6 +52,12 @@ a.delete:hover{
 .jumbotron {
   position:relative;
   overflow:hidden;
+  margin-bottom: 0 !important;
+}
+
+.jumbotron-2{
+	margin: 0;
+	background-color: indigo;
 }
 
 .jumbotron .container {
