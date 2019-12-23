@@ -8,24 +8,27 @@ public class Event {
 	private String description;
 	private String date;
 	private String time;
+	private String address;
 	private Category category;
 	
-	public Event(int id, String name, String description, String date, String time, Category category) {
+	public Event(int id, String name, String description, String date, String time, String address, Category category) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.date = date;
+		this.address=address;
 		this.time=time;
 		this.category=category;
 	}
 	
-	public Event(String name, String description, String date, String time, String category) {
+	public Event(String name, String description, String date, String time, String address, String category) {
 		super();
 		this.name=name;
 		this.description=description;
 		this.date=date;
 		this.time=time;
+		this.address=address;
 		this.category=new Category();
 		this.category.setName(category);
 	}
@@ -80,6 +83,14 @@ public class Event {
 
 	public void setTime(String time) {
 		this.time = time;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	
 }

@@ -55,10 +55,11 @@ public class Controller extends HttpServlet {
 			address="/WEB-INF/pages/admin.jsp";
 			String name=request.getParameter("name");
 			String description=request.getParameter("description");
-			String category=request.getParameter("category");
+			String category=request.getParameter("category");					//getCategoryByName(name)
 			String date=request.getParameter("date");
 			String time=request.getParameter("time");
-			Event event=new Event(name, description, date, time, category);
+			String location=request.getParameter("address");
+			Event event=new Event(name, description, date, time, location, category);
 			EventDAO.createEvent(event);
 		}else if(action.equals("addcategory")) {
 			address="/WEB-INF/pages/admin.jsp";
@@ -73,7 +74,6 @@ public class Controller extends HttpServlet {
 		}else if(action.equals("showcategories")) {
 			address="/WEB-INF/pages/showcategories.jsp";
 		}else if(action.equals("deletecategory")) {
-			System.out.println("deletecat");
 			String id = request.getParameter("id");
 			String name = request.getParameter("name");
 			CategoryBean category= new CategoryBean();

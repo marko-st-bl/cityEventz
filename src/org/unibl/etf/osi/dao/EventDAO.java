@@ -5,7 +5,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.unibl.etf.osi.dto.Event;
@@ -75,5 +77,58 @@ public class EventDAO {
 		}
 		
 	}
+	
+	public static List<Event> getTodaysEvent(){
+		List<Event> events= getAllEvents();
+		List<Event> todays=new ArrayList<>();
+		Date date=new Date();
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		String today=sdf.format(date);
+		for(Event e:events) {
+			if(e.getDate().equals(today)) {
+				todays.add(e);
+			}
+		}
+		return todays;
+	}
 
+	public static List<Event> getUpcomingEvents() {
+		List<Event> events= getAllEvents();
+		List<Event> upcoming=new ArrayList<>();
+		Date date=new Date();
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		String today=sdf.format(date);
+		String[] todaysParams=today.split("-");
+		int todayYear = Integer.parseInt(todaysParams[0]);
+		int todayDate = Integer.parseInt(todaysParams[1].concat(todaysParams[2]));
+		for(Event e:events) {
+			String[] dateParams=e.getDate().split("-");
+			int eYear = Integer.parseInt(dateParams[0]);
+			int eDate = Integer.parseInt(dateParams[1].concat(dateParams[2]));
+			if(eYear >= todayYear && eDate > todayDate) {
+				upcoming.add(e);
+			}
+		}
+		return upcoming;
+	}
+	
+	public static List<Event> getPastEvents(){
+		List<Event> events= getAllEvents();
+		List<Event> past=new ArrayList<>();
+		Date date=new Date();
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		String today=sdf.format(date);
+		String[] todaysParams=today.split("-");
+		int todayYear = Integer.parseInt(todaysParams[0]);
+		int todayDate = Integer.parseInt(todaysParams[1].concat(todaysParams[2]));
+		for(Event e:events) {
+			String[] dateParams=e.getDate().split("-");
+			int eYear = Integer.parseInt(dateParams[0]);
+			int eDate = Integer.parseInt(dateParams[1].concat(dateParams[2]));
+			if(eYear <= todayYear && eDate < todayDate) {
+				past.add(e);
+			}
+		}
+		return past;
+	}
 }

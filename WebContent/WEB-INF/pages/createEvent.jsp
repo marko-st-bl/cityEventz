@@ -25,6 +25,11 @@
 				placeholder="Enter description"></textarea>
 		</div>
 		<div class="form-group">
+			<label for="address">Address</label>
+			<textarea class="form-control" name="address" id="event-address" rows="2"
+				placeholder="Enter address"></textarea>
+		</div>
+		<div class="form-group">
 			<label for="category">Select category</label> <select
 				class="form-control" name="category" id="event-category">
 				<%

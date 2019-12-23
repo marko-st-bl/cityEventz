@@ -1,0 +1,11 @@
+a.delete{
+	color: #d11a2a;
+}
+
+a.delete:hover{
+	color: red;
+}
+
+div.backgroundimage{
+	backround-image: url("img/background.jpg");
+}
