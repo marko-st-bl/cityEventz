@@ -3,7 +3,7 @@
 	if(!userBean.isLoggedIn())
 		response.sendRedirect("index.jsp");
 %>
-<jsp:include flush="true" page="adminHeader.jsp"/>
+<jsp:include flush="true" page="adminheader.jsp"/>
 <br>
 <h1>ADMIN HOME</h1>
 </body>

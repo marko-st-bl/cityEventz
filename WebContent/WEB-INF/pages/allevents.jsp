@@ -1,4 +1,4 @@
-<jsp:include flush="true" page="userheader.jsp"/>
+<jsp:include flush="true" page="adminheader.jsp"/>
 <%@ page import="java.util.List"%>
 <%@ page import="org.unibl.etf.osi.dto.Event"%>
 <jsp:useBean id="eventBean" class="org.unibl.etf.osi.beans.EventBean"></jsp:useBean>

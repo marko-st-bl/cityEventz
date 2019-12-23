@@ -14,7 +14,6 @@ import org.unibl.etf.osi.beans.CategoryBean;
 import org.unibl.etf.osi.beans.EventBean;
 import org.unibl.etf.osi.beans.UserBean;
 import org.unibl.etf.osi.dao.CategoryDAO;
-import org.unibl.etf.osi.dao.EventDAO;
 import org.unibl.etf.osi.dto.Category;
 import org.unibl.etf.osi.dto.Event;
 

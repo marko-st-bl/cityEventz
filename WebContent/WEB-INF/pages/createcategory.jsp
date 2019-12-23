@@ -6,7 +6,7 @@
 	if (!userBean.isLoggedIn())
 		response.sendRedirect("Controller?action=login");
 %>
-<jsp:include flush="true" page="adminHeader.jsp" />
+<jsp:include flush="true" page="adminheader.jsp" />
 <br>
 <div class="container">
 	<h1>Create category</h1>
