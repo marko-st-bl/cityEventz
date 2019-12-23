@@ -1,6 +1,9 @@
 package org.unibl.etf.osi.controller;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,6 +19,7 @@ import org.unibl.etf.osi.beans.UserBean;
 import org.unibl.etf.osi.dao.CategoryDAO;
 import org.unibl.etf.osi.dto.Category;
 import org.unibl.etf.osi.dto.Event;
+import org.unibl.etf.osi.util.EventComparator;
 
 /**
  * Servlet implementation class Controller
@@ -89,6 +93,25 @@ public class Controller extends HttpServlet {
 			address="/WEB-INF/pages/pastevents.jsp";
 		}else if(action.equals("showall")) {
 			address="/WEB-INF/pages/allevents.jsp";
+		}else if(action.equals("sort")) {
+			String sortBy = request.getParameter("sortcategory");
+			String order = request.getParameter("order");
+			address="/WEB-INF/pages/allevents.jsp";
+			EventBean eventBean=new EventBean();
+			List<Event> events = eventBean.getAllEvents();
+			switch(sortBy) {
+				case "Name":
+					if(order.equals("Ascendig")) {
+						Collections.sort(events, EventComparator.NAME_SORT);
+					}else {
+						Collections.sort(events, EventComparator.decending(EventComparator.NAME_SORT));
+					}
+					break;
+				case "Date":
+					
+			
+			
+			}
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);

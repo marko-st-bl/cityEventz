@@ -9,9 +9,10 @@ output+="<div class=\"container\">";
 output+="<div class=\"events\">";
 output+="<div class=\"card-deck\">";
 for(Event e:events){
-	output+="<div class=\"col-lg-10\">" +
+	String dateParams[] = e.getDate().split("-");
+	output+="<div class=\"col-lg-12\">" +
 				"<div class=\"card text-white bg-dark mb-3\">" +
-					"<div class=\"card-header\">" +e.getDate() + "<br>" + e.getTime() + "</div>" +
+					"<div class=\"card-header\">" +dateParams[2] + "." + dateParams[1] + "." + dateParams[0] + ", " + e.getTime() + "</div>" +
 					"<div class=\"card-body\">" +
 						"<h5 class=\"card-title\">" + e.getName() + "</h5>" +
 						"<p class=\"card-text\">" + e.getDescription() + "</p>" +
@@ -24,6 +25,27 @@ output+="</div>";
 output+="</div>";
 %>
 
+<div class="container">
+<div class="sort">
+<form id="form" action="Controller?sort" method="POST">
+	<div class="form-group">
+		<label>Sort by:</label>
+		<select>
+			<option>Name</option>
+			<option>Category</option>
+			<option>Date</option>
+			<option>Time</option>
+		</select>
+		<label>Order:</label>
+		<select>
+			<option>Ascending</option>
+			<option>Descending</option>
+		</select>
+	<button type="submit" class="btn btn-primary">Sort</button>
+	</div>
+</form>
+</div>
+</div>
 <%= output %>
 
 
