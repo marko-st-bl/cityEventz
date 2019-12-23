@@ -12,7 +12,7 @@
 %>
 <jsp:include flush="true" page="adminheader.jsp" />
 <br>
-<div class="container">
+<div class=" create-event container">
 	<h1>Create event</h1>
 	<form action="?action=addevent" method="post">
 		<div class="form-group">

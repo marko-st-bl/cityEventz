@@ -70,3 +70,11 @@ a.delete:hover{
   border-radius:3px;
   font-weight: bolder;
 }
+
+footer{
+	margin-top: 15px;
+}
+
+.create-event{
+	margin-bottom: 80px;
+}
