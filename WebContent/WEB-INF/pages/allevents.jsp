@@ -3,7 +3,10 @@
 <%@ page import="org.unibl.etf.osi.dto.Event"%>
 <jsp:useBean id="eventBean" class="org.unibl.etf.osi.beans.EventBean"></jsp:useBean>
 <%
-List<Event> events= eventBean.getAllEvents();
+List<Event> events = (List<Event>)session.getAttribute("sortedList");
+if(events == null){
+	events = eventBean.getAllEvents();
+}
 String output="";
 output+="<div class=\"container\">";
 output+="<div class=\"events\">";
@@ -27,17 +30,17 @@ output+="</div>";
 
 <div class="container">
 <div class="sort">
-<form id="form" action="Controller?sort" method="POST">
+<form id="form" action="Controller?action=sort" method="POST">
 	<div class="form-group">
-		<label>Sort by:</label>
-		<select>
+		<label for="sortBy">Sort by:</label>
+		<select name="sortBy">
 			<option>Name</option>
 			<option>Category</option>
 			<option>Date</option>
 			<option>Time</option>
 		</select>
-		<label>Order:</label>
-		<select>
+		<label for="order">Order:</label>
+		<select name="order">
 			<option>Ascending</option>
 			<option>Descending</option>
 		</select>

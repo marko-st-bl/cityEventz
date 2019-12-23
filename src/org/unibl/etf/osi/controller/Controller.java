@@ -94,24 +94,42 @@ public class Controller extends HttpServlet {
 		}else if(action.equals("showall")) {
 			address="/WEB-INF/pages/allevents.jsp";
 		}else if(action.equals("sort")) {
-			String sortBy = request.getParameter("sortcategory");
+			String sortBy = request.getParameter("sortBy");
 			String order = request.getParameter("order");
 			address="/WEB-INF/pages/allevents.jsp";
 			EventBean eventBean=new EventBean();
 			List<Event> events = eventBean.getAllEvents();
 			switch(sortBy) {
 				case "Name":
-					if(order.equals("Ascendig")) {
+					if(order.equals("Ascending")) {
 						Collections.sort(events, EventComparator.NAME_SORT);
 					}else {
 						Collections.sort(events, EventComparator.decending(EventComparator.NAME_SORT));
 					}
 					break;
 				case "Date":
-					
-			
-			
+					if(order.equals("Ascending")) {
+						Collections.sort(events, EventComparator.DATE_SORT);
+					}else {
+						Collections.sort(events, EventComparator.decending(EventComparator.DATE_SORT));
+					}
+					break;
+				case "Time":
+					if(order.equals("Ascending")) {
+						Collections.sort(events, EventComparator.TIME_SORT);
+					}else {
+						Collections.sort(events, EventComparator.decending(EventComparator.TIME_SORT));
+					}
+					break;
+				case "Category":
+					if(order.equals("Ascending")) {
+						Collections.sort(events, EventComparator.CATEGORY_SORT);
+					}else {
+						Collections.sort(events, EventComparator.decending(EventComparator.CATEGORY_SORT));
+					}
+					break;
 			}
+			session.setAttribute("sortedList", events);
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
