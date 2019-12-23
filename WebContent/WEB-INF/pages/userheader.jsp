@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ page import="org.unibl.etf.osi.dto.Category"%>
+<%@ page import="java.util.List"%>
+<jsp:useBean id="categoryBean" class="org.unibl.etf.osi.beans.CategoryBean" scope="session" />
+<%
+String categoryList="";
+List<Category> categories = categoryBean.getAllCategories();
+for (Category cat : categories){
+	categoryList+="<a class=\"dropdown-item\" href=\"Controller?action=showbycategory&name=" + cat.getName() + "\">" + 
+					cat.getName() +"</a>";
+}
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +34,11 @@
 				<li class="nav-item"><a class="nav-link" href="Controller?action=showtodays">Today</a></li>
 				<li class="nav-item"><a class="nav-link" href="Controller?action=showupcoming">Upcoming</a></li>
 				<li class="nav-item"><a class="nav-link" href="Controller?action=showpast">Past</a></li>
+				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
+					data-toggle="dropdown" href="#">Category</a>
+					<div class="dropdown-menu">
+						<%= categoryList %>
+					</div></li>
 			</ul>
 		</div>
 	</nav>

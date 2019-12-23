@@ -131,4 +131,15 @@ public class EventDAO {
 		}
 		return past;
 	}
+
+	public static List<Event> getByCategory(String name) {
+		List<Event> all= getAllEvents();
+		List<Event> events=new ArrayList<>();
+		for(Event e:all) {
+			if(e.getCategory().getName().equals(name)) {
+				events.add(e);
+			}
+		}
+		return events;
+	}
 }

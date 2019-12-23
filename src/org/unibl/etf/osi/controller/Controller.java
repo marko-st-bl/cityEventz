@@ -130,6 +130,9 @@ public class Controller extends HttpServlet {
 					break;
 			}
 			session.setAttribute("sortedList", events);
+		}else if(action.equals("showbycategory")) {
+			String name = request.getParameter("name");
+			System.out.print(name);
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);

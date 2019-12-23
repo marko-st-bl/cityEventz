@@ -33,5 +33,5 @@ div.backgroundimage{
 	display: flex;
 	margin-top: 25px;
 	align-content: flex-end;
-	justify-content: end;
+	justify-content: flex-end;
 }
