@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.unibl.etf.osi.beans.CategoryBean;
+import org.unibl.etf.osi.beans.EventBean;
 import org.unibl.etf.osi.beans.UserBean;
 import org.unibl.etf.osi.dao.CategoryDAO;
 import org.unibl.etf.osi.dao.EventDAO;
@@ -59,8 +60,10 @@ public class Controller extends HttpServlet {
 			String date=request.getParameter("date");
 			String time=request.getParameter("time");
 			String location=request.getParameter("address");
+			EventBean eventBean=new EventBean();
 			Event event=new Event(name, description, date, time, location, category);
-			EventDAO.createEvent(event);
+			eventBean.setEvent(event);
+			eventBean.addEvent();
 		}else if(action.equals("addcategory")) {
 			address="/WEB-INF/pages/admin.jsp";
 			String name=request.getParameter("name");
