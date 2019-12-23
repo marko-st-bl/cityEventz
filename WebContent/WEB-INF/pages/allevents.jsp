@@ -43,7 +43,7 @@
 					<option>Ascending</option>
 					<option>Descending</option>
 				</select>
-				<button type="submit" class="btn btn-primary">Sort</button>
+				<button id= "sort-btn" type="submit" class="btn btn-primary">Sort</button>
 			</div>
 		</form>
 	</div>
