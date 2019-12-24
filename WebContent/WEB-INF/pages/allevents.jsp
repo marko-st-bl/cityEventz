@@ -22,7 +22,9 @@
 		output += "<div class=\"col-lg-12\">" + "<div class=\"card bg-light mb-3\">"
 				+ "<div class=\"card-header\">" + dateParams[2] + "." + dateParams[1] + "." + dateParams[0]
 				+ ", " + e.getTime() + "</div>" + "<div class=\"card-body\">" + "<h5 class=\"card-title\">"
-				+ e.getName() + "</h5>" + "<p class=\"card-text\">" + e.getDescription() + "</p>" + "</div>"
+				+ e.getName() + "</h5>" + "<p class=\"card-text\">" + e.getDescription() + "</p>" +
+				"<p class=\"card-text\">" + e.getAddress() + "</p></div>" + 
+				"<div class=\"card-footer\"><a href=\"Controller?action=deleteevent&name=" + e.getId() +"\" class=\"btn btn-danger float-right\">Delete</a><a href=\"Controller?action=modifyevent&id=" + e.getId() + "\" class=\"btn btn-secondary float-right\">Modify</a></div>"
 				+ "</div>" + "</div>";
 	}
 	output += "</div>";
@@ -43,7 +45,7 @@
 					<option>Ascending</option>
 					<option>Descending</option>
 				</select>
-				<button id= "sort-btn" type="submit" class="btn btn-primary">Sort</button>
+				<button id="sort-btn" type="submit" class="btn btn-secondary">Sort</button>
 			</div>
 		</form>
 	</div>
