@@ -4,7 +4,7 @@
 <jsp:useBean id="eventBean" class="org.unibl.etf.osi.beans.EventBean"></jsp:useBean>
 <%
 List<Event> events= eventBean.getPastEvents();
-String output="";
+String output = "";
 output += "<div class=\"container\">";
 output += "<div class=\"events\">";
 output += "<div class=\"card-deck\">";
@@ -13,8 +13,9 @@ for (Event e : events) {
 	output += "<div class=\"col-lg-12\">" + "<div class=\"card bg-light mb-3\">"
 			+ "<div class=\"card-header\">" + dateParams[2] + "." + dateParams[1] + "." + dateParams[0]
 			+ ", " + e.getTime() + "</div>" + "<div class=\"card-body\">" + "<h5 class=\"card-title\">"
-			+ e.getName() + "</h5>" + "<p class=\"card-text\">" + e.getDescription() + "</p>" + "</div>"
-			+ "</div>" + "</div>";
+			+ e.getName() + "</h5>" + "<p class=\"card-text\">" + e.getDescription() + "</p>" +
+			"<p class=\"card-text\">" + e.getAddress() + "</p></div>" + 
+			"</div>" + "</div>";
 }
 output += "</div>";
 output += "</div>";

@@ -11,7 +11,7 @@ public class Event {
 	private String address;
 	private Category category;
 	
-	public Event(int id, String name, String description, String date, String time, String address, Category category) {
+	public Event(int id, String name, String description, String date, String time, String address, String category) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -19,7 +19,8 @@ public class Event {
 		this.date = date;
 		this.address=address;
 		this.time=time;
-		this.category=category;
+		this.category=new Category();
+		this.category.setName(category);
 	}
 	
 	public Event(String name, String description, String date, String time, String address, String category) {

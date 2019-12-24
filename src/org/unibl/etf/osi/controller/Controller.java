@@ -1,7 +1,6 @@
 package org.unibl.etf.osi.controller;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -96,7 +95,7 @@ public class Controller extends HttpServlet {
 		}else if(action.equals("sort")) {
 			String sortBy = request.getParameter("sortBy");
 			String order = request.getParameter("order");
-			address="/WEB-INF/pages/allevents.jsp";
+			address="/WEB-INF/pages/sortedevents.jsp";
 			EventBean eventBean=new EventBean();
 			List<Event> events = eventBean.getAllEvents();
 			switch(sortBy) {
@@ -136,6 +135,29 @@ public class Controller extends HttpServlet {
 			List<Event> events = eventBean.getByCategory(name);
 			session.setAttribute("eventsByCategory", events);
 			address = "/WEB-INF/pages/eventsbycategory.jsp";
+		}else if(action.equals("deleteevent")) {
+			address="/WEB-INF/pages/allevents.jsp";
+			int id = Integer.parseInt(request.getParameter("id"));
+			EventBean eventBean = new EventBean(id);
+			eventBean.removeEvent();
+		}else if(action.equals("modifyevent")) {
+			int id = Integer.parseInt(request.getParameter("id"));
+			EventBean eventBean = new EventBean(id);
+			session.setAttribute("eventBean", eventBean);
+			address="/WEB-INF/pages/modifyevent.jsp";
+		}else if(action.equals("updateevent")) {
+			address="/WEB-INF/pages/allevents.jsp";
+			int id = Integer.parseInt(request.getParameter("id"));
+			String name=request.getParameter("name");
+			String description=request.getParameter("description");
+			String category=request.getParameter("category");					//getCategoryByName(name)
+			String date=request.getParameter("date");
+			String time=request.getParameter("time");
+			String location=request.getParameter("address");
+			Event event = new Event(id, name, description, date, time, location, category);
+			EventBean eventBean = new EventBean();
+			eventBean.setEvent(event);
+			eventBean.updateEvent();
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);

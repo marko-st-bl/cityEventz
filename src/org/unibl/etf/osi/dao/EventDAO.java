@@ -54,6 +54,38 @@ public class EventDAO {
 		
 	}
 	
+	public static void removeEvent(Event event) {
+		List<Event> events = getAllEvents();
+		Event rm=new Event();
+		for(Event e:events) {
+			if(e.getId() == event.getId()) {
+				rm=e;
+				break;
+			}
+		}
+		events.remove(rm);
+		try {
+			Gson gson = new Gson();
+			FileWriter writer = new FileWriter(PATH);
+			gson.toJson(events, writer);
+			writer.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static Event getEventById(int id) {
+		List<Event> events = getAllEvents();
+		Event retVal=new Event();
+		for(Event e:events) {
+			if(e.getId() == id) {
+				retVal=e;
+				break;
+			}
+		}
+		return retVal;
+	}
+	
 	public static void updateEvent(Event event) {
 		List<Event> events = getAllEvents();
 		int i=-1;
@@ -64,7 +96,7 @@ public class EventDAO {
 			}
 		}
 		if(i!= -1) {
-			events.remove(i);
+			events.set(i, event);
 		}
 		
 		try {
@@ -105,7 +137,10 @@ public class EventDAO {
 			String[] dateParams=e.getDate().split("-");
 			int eYear = Integer.parseInt(dateParams[0]);
 			int eDate = Integer.parseInt(dateParams[1].concat(dateParams[2]));
-			if(eYear >= todayYear && eDate > todayDate) {
+			//if(eYear >= todayYear && eDate > todayDate) {
+		//		upcoming.add(e);
+		//	}
+			if(e.getDate().compareTo(today) > 0) {
 				upcoming.add(e);
 			}
 		}

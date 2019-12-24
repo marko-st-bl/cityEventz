@@ -9,12 +9,21 @@ public class EventBean {
 
 	private Event event=new Event();
 	
+	public EventBean() {
+		super();
+	}
+	
+	public EventBean(int id) {
+		this.event=EventDAO.getEventById(id);
+	}
+	
 	public void setEvent(Event event) {
 		this.event=event;
 	}
 	public Event getEvent() {
 		return this.event;
 	}
+	
 	public void addEvent() {
 		EventDAO.createEvent(event);
 	}
@@ -22,7 +31,7 @@ public class EventBean {
 		EventDAO.updateEvent(event);
 	}
 	public void removeEvent() {
-		
+		EventDAO.removeEvent(event);
 	}
 	public List<Event> getAllEvents() {
 		return EventDAO.getAllEvents();

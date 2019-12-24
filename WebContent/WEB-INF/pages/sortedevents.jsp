@@ -9,7 +9,10 @@
 		response.sendRedirect("Controller?action=login");
 %>
 <%
-	List<Event> events = eventBean.getAllEvents();
+	List<Event> events = (List<Event>) session.getAttribute("sortedList");
+	if (events == null) {
+		events = eventBean.getAllEvents();
+	}
 	String output = "";
 	output += "<div class=\"container\">";
 	output += "<div class=\"events\">";

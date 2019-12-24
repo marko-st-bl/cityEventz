@@ -35,6 +35,7 @@ a.delete:hover{
 
 .card-header{
 	color: #FF5733;
+	font-weight: bold;
 }
 
 .jumbotron-background {
@@ -77,6 +78,10 @@ footer{
 
 .create-event{
 	margin-bottom: 80px;
+}
+.modify-event{
+	margin-bottom: 80px;
+	padding-bottom:60px;
 }
 .btn-danger{
 	margin-left: 10px;
