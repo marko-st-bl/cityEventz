@@ -17,7 +17,7 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 		<div class="collapse navbar-collapse">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">cityEventz</a>
+				<a class="navbar-brand" href="Controller?action=admin">cityEventz</a>
 			</div>
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"

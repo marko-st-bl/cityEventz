@@ -13,10 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.unibl.etf.osi.beans.CategoryBean;
+import org.unibl.etf.osi.beans.CityBean;
 import org.unibl.etf.osi.beans.EventBean;
 import org.unibl.etf.osi.beans.UserBean;
 import org.unibl.etf.osi.dao.CategoryDAO;
 import org.unibl.etf.osi.dto.Category;
+import org.unibl.etf.osi.dto.City;
 import org.unibl.etf.osi.dto.Event;
 import org.unibl.etf.osi.util.EventComparator;
 
@@ -26,148 +28,167 @@ import org.unibl.etf.osi.util.EventComparator;
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Controller() {
-        super();
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public Controller() {
+		super();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String address = "/WEB-INF/pages/index.jsp";
 		String action = request.getParameter("action");
 		HttpSession session = request.getSession();
-		if(action == null || action.equals("")) {
-			address="/WEB-INF/pages/index.jsp";
-		}else if(action.equals("login")) {
+		if (action == null || action.equals("")) {
+			address = "/WEB-INF/pages/index.jsp";
+		} else if (action.equals("login")) {
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
 			UserBean userBean = new UserBean();
-			if(userBean.login(username, password)) {
+			if (userBean.login(username, password)) {
 				session.setAttribute("userBean", userBean);
-				address="/WEB-INF/pages/admin.jsp";
+				address = "/WEB-INF/pages/admin.jsp";
 			}
-		}else if(action.equals("createevent")){
-			address="/WEB-INF/pages/createEvent.jsp";
-		}else if(action.equals("addevent")) {
-			address="/WEB-INF/pages/admin.jsp";
-			String name=request.getParameter("name");
-			String description=request.getParameter("description");
-			String category=request.getParameter("category");					//getCategoryByName(name)
-			String date=request.getParameter("date");
-			String time=request.getParameter("time");
-			String location=request.getParameter("address");
-			EventBean eventBean=new EventBean();
-			Event event=new Event(name, description, date, time, location, category);
+		} else if (action.equals("admin")) {
+			address = "/WEB-INF/pages/admin.jsp";
+		} else if (action.equals("createevent")) {
+			address = "/WEB-INF/pages/createEvent.jsp";
+		} else if (action.equals("addevent")) {
+			address = "/WEB-INF/pages/admin.jsp";
+			String name = request.getParameter("name");
+			String description = request.getParameter("description");
+			String category = request.getParameter("category"); // getCategoryByName(name)
+			String date = request.getParameter("date");
+			String time = request.getParameter("time");
+			String location = request.getParameter("address");
+			EventBean eventBean = new EventBean();
+			Event event = new Event(name, description, date, time, location, category);
 			eventBean.setEvent(event);
 			eventBean.addEvent();
-		}else if(action.equals("addcategory")) {
-			address="/WEB-INF/pages/admin.jsp";
-			String name=request.getParameter("name");
-			Category category=new Category(name);
+		} else if (action.equals("addcategory")) {
+			address = "/WEB-INF/pages/admin.jsp";
+			String name = request.getParameter("name");
+			Category category = new Category(name);
 			CategoryDAO.addCategory(category);
-		}else if(action.equals("createcategory")) {
-			address="/WEB-INF/pages/createcategory.jsp";
-		}else if(action.equals("logout")) {
+		} else if (action.equals("createcategory")) {
+			address = "/WEB-INF/pages/createcategory.jsp";
+		} else if (action.equals("logout")) {
 			session.invalidate();
 			address = "/WEB-INF/pages/index.jsp";
-		}else if(action.equals("showcategories")) {
-			address="/WEB-INF/pages/showcategories.jsp";
-		}else if(action.equals("deletecategory")) {
+		} else if (action.equals("showcategories")) {
+			address = "/WEB-INF/pages/showcategories.jsp";
+		} else if (action.equals("deletecategory")) {
 			String id = request.getParameter("id");
 			String name = request.getParameter("name");
-			CategoryBean category= new CategoryBean();
+			CategoryBean category = new CategoryBean();
 			category.setCategory(new Category(Integer.parseInt(id), name));
 			category.removeCategory();
-		}else if(action.equals("showtodays")) {
-			address="/WEB-INF/pages/todaysevents.jsp";
-		}else if(action.equals("showupcoming")) {
-			address="/WEB-INF/pages/upcomingevents.jsp";
-		}else if(action.equals("showpast")) {
-			address="/WEB-INF/pages/pastevents.jsp";
-		}else if(action.equals("showall")) {
-			address="/WEB-INF/pages/allevents.jsp";
-		}else if(action.equals("sort")) {
+		} else if (action.equals("showtodays")) {
+			address = "/WEB-INF/pages/todaysevents.jsp";
+		} else if (action.equals("showupcoming")) {
+			address = "/WEB-INF/pages/upcomingevents.jsp";
+		} else if (action.equals("showpast")) {
+			address = "/WEB-INF/pages/pastevents.jsp";
+		} else if (action.equals("showall")) {
+			address = "/WEB-INF/pages/allevents.jsp";
+		} else if (action.equals("sort")) {
 			String sortBy = request.getParameter("sortBy");
 			String order = request.getParameter("order");
-			address="/WEB-INF/pages/sortedevents.jsp";
-			EventBean eventBean=new EventBean();
+			address = "/WEB-INF/pages/sortedevents.jsp";
+			EventBean eventBean = new EventBean();
 			List<Event> events = eventBean.getAllEvents();
-			switch(sortBy) {
-				case "Name":
-					if(order.equals("Ascending")) {
-						Collections.sort(events, EventComparator.NAME_SORT);
-					}else {
-						Collections.sort(events, EventComparator.decending(EventComparator.NAME_SORT));
-					}
-					break;
-				case "Date":
-					if(order.equals("Ascending")) {
-						Collections.sort(events, EventComparator.DATE_SORT);
-					}else {
-						Collections.sort(events, EventComparator.decending(EventComparator.DATE_SORT));
-					}
-					break;
-				case "Time":
-					if(order.equals("Ascending")) {
-						Collections.sort(events, EventComparator.TIME_SORT);
-					}else {
-						Collections.sort(events, EventComparator.decending(EventComparator.TIME_SORT));
-					}
-					break;
-				case "Category":
-					if(order.equals("Ascending")) {
-						Collections.sort(events, EventComparator.CATEGORY_SORT);
-					}else {
-						Collections.sort(events, EventComparator.decending(EventComparator.CATEGORY_SORT));
-					}
-					break;
+			switch (sortBy) {
+			case "Name":
+				if (order.equals("Ascending")) {
+					Collections.sort(events, EventComparator.NAME_SORT);
+				} else {
+					Collections.sort(events, EventComparator.decending(EventComparator.NAME_SORT));
+				}
+				break;
+			case "Date":
+				if (order.equals("Ascending")) {
+					Collections.sort(events, EventComparator.DATE_SORT);
+				} else {
+					Collections.sort(events, EventComparator.decending(EventComparator.DATE_SORT));
+				}
+				break;
+			case "Time":
+				if (order.equals("Ascending")) {
+					Collections.sort(events, EventComparator.TIME_SORT);
+				} else {
+					Collections.sort(events, EventComparator.decending(EventComparator.TIME_SORT));
+				}
+				break;
+			case "Category":
+				if (order.equals("Ascending")) {
+					Collections.sort(events, EventComparator.CATEGORY_SORT);
+				} else {
+					Collections.sort(events, EventComparator.decending(EventComparator.CATEGORY_SORT));
+				}
+				break;
 			}
 			session.setAttribute("sortedList", events);
-		}else if(action.equals("showbycategory")) {
+		} else if (action.equals("showbycategory")) {
 			String name = request.getParameter("name");
 			EventBean eventBean = new EventBean();
 			List<Event> events = eventBean.getByCategory(name);
 			session.setAttribute("eventsByCategory", events);
 			address = "/WEB-INF/pages/eventsbycategory.jsp";
-		}else if(action.equals("deleteevent")) {
-			address="/WEB-INF/pages/allevents.jsp";
+		} else if (action.equals("deleteevent")) {
+			address = "/WEB-INF/pages/allevents.jsp";
 			int id = Integer.parseInt(request.getParameter("id"));
 			EventBean eventBean = new EventBean(id);
 			eventBean.removeEvent();
-		}else if(action.equals("modifyevent")) {
+		} else if (action.equals("modifyevent")) {
 			int id = Integer.parseInt(request.getParameter("id"));
 			EventBean eventBean = new EventBean(id);
 			session.setAttribute("eventBean", eventBean);
-			address="/WEB-INF/pages/modifyevent.jsp";
-		}else if(action.equals("updateevent")) {
-			address="/WEB-INF/pages/allevents.jsp";
+			address = "/WEB-INF/pages/modifyevent.jsp";
+		} else if (action.equals("updateevent")) {
+			address = "/WEB-INF/pages/allevents.jsp";
 			int id = Integer.parseInt(request.getParameter("id"));
-			String name=request.getParameter("name").trim();
-			String description=request.getParameter("description").trim();
-			String category=request.getParameter("category").trim();					//getCategoryByName(name)
-			String date=request.getParameter("date");
-			String time=request.getParameter("time");
-			String location=request.getParameter("address").trim();
+			String name = request.getParameter("name").trim();
+			String description = request.getParameter("description").trim();
+			String category = request.getParameter("category").trim(); // getCategoryByName(name)
+			String date = request.getParameter("date");
+			String time = request.getParameter("time");
+			String location = request.getParameter("address").trim();
 			Event event = new Event(id, name, description, date, time, location, category);
 			EventBean eventBean = new EventBean();
 			eventBean.setEvent(event);
 			eventBean.updateEvent();
+		} else if (action.equals("city")) {
+			address = "/WEB-INF/pages/city.jsp";
+		} else if (action.equals("updatecity")) {
+			address = "/WEB-INF/pages/city.jsp";
+			String name = request.getParameter("name");
+			String country = request.getParameter("country");
+			String region = request.getParameter("region");
+			int population = Integer.parseInt(request.getParameter("population"));
+			int area = Integer.parseInt(request.getParameter("area"));
+			City city = new City(name, country, region, population, area);
+			CityBean cityBean = new CityBean();
+			cityBean.setCity(city);
+			cityBean.updateCity();
 		}
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
 		dispatcher.forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

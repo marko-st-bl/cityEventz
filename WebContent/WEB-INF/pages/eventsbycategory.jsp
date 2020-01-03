@@ -24,5 +24,5 @@
 	output += "</div>";
 %>
 
-<%= output %>
-<jsp:include flush="true" page="footer.jsp"/>
+<%=output%>
+<jsp:include flush="true" page="footer.jsp" />

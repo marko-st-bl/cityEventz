@@ -14,7 +14,7 @@ import com.google.gson.stream.JsonReader;
 
 public class CityDAO {
 
-	public static final String PATH = "C:\\Users\\Marko\\eclipse-workspace\\cityEventz\\json\\categories.json";
+	public static final String PATH = "C:\\Users\\Marko\\eclipse-workspace\\cityEventz\\json\\city.json";
 
 	public static City getCity() {
 		City retVal = new City();
