@@ -148,12 +148,12 @@ public class Controller extends HttpServlet {
 		}else if(action.equals("updateevent")) {
 			address="/WEB-INF/pages/allevents.jsp";
 			int id = Integer.parseInt(request.getParameter("id"));
-			String name=request.getParameter("name");
-			String description=request.getParameter("description");
-			String category=request.getParameter("category");					//getCategoryByName(name)
+			String name=request.getParameter("name").trim();
+			String description=request.getParameter("description").trim();
+			String category=request.getParameter("category").trim();					//getCategoryByName(name)
 			String date=request.getParameter("date");
 			String time=request.getParameter("time");
-			String location=request.getParameter("address");
+			String location=request.getParameter("address").trim();
 			Event event = new Event(id, name, description, date, time, location, category);
 			EventBean eventBean = new EventBean();
 			eventBean.setEvent(event);

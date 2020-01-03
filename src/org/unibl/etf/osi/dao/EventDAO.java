@@ -130,16 +130,7 @@ public class EventDAO {
 		Date date=new Date();
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		String today=sdf.format(date);
-		String[] todaysParams=today.split("-");
-		int todayYear = Integer.parseInt(todaysParams[0]);
-		int todayDate = Integer.parseInt(todaysParams[1].concat(todaysParams[2]));
 		for(Event e:events) {
-			String[] dateParams=e.getDate().split("-");
-			int eYear = Integer.parseInt(dateParams[0]);
-			int eDate = Integer.parseInt(dateParams[1].concat(dateParams[2]));
-			//if(eYear >= todayYear && eDate > todayDate) {
-		//		upcoming.add(e);
-		//	}
 			if(e.getDate().compareTo(today) > 0) {
 				upcoming.add(e);
 			}
@@ -153,14 +144,8 @@ public class EventDAO {
 		Date date=new Date();
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		String today=sdf.format(date);
-		String[] todaysParams=today.split("-");
-		int todayYear = Integer.parseInt(todaysParams[0]);
-		int todayDate = Integer.parseInt(todaysParams[1].concat(todaysParams[2]));
 		for(Event e:events) {
-			String[] dateParams=e.getDate().split("-");
-			int eYear = Integer.parseInt(dateParams[0]);
-			int eDate = Integer.parseInt(dateParams[1].concat(dateParams[2]));
-			if(eYear <= todayYear && eDate < todayDate) {
+			if(e.getDate().compareTo(today) < 0) {
 				past.add(e);
 			}
 		}
