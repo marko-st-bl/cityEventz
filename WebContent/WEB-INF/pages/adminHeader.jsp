@@ -36,6 +36,7 @@
 					</div></li>
 			</ul>
 			<ul class="navbar-nav navbar-right">
+				<li class="nav-item"><a class="nav-link" href="Controller?action=city"><i class="fas fa-city"></i>City</a></li>
 				<li class="nav-item"><a class="nav-link" href="Controller?action=logout"><i class="fas fa-sign-out-alt"></i>
 						Logout</a></li>
 			</ul>
