@@ -1,5 +1,4 @@
 # cityEventz
-OSI2019-Grupa19
 
 1. Preuzeti i raspakovati projekat
 2. Otvoriti u Eclipse radnom okruzenju
